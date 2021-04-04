@@ -1,9 +1,11 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, request, render_template
 from markupsafe import escape
 
 
 #You need to use following line [app Flask(__name__]
 app = Flask(__name__)
+
+
 @app.route('/')
 def index():
     return "Hello World with flask"
@@ -36,9 +38,13 @@ def show_subpath(subpath):
 
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return 'login'
+    if request.method == 'POST':
+        return do_the_login()
+
+    else:
+        show_the_login_form()
 
 @app.route('/user/<username>')
 def profile(username):
@@ -49,6 +55,16 @@ with app.test_request_context():
     print(url_for('login'))
     print(url_for('login', next='/'))
     print(url_for('profile', username='John Doe'))
+
+
+@app.route('/yo/<name>')
+def how_far(name=None):
+    return render_template('hello.html', name=name)
+
+
+@app.route('/home')
+def home():
+    return render_template('index.html')
 
 
 
