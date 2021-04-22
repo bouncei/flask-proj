@@ -5,25 +5,7 @@ from models import BlogPost, db
 
 
 
-all_posts = [
-    {
-        'title': 'Post A',
-        'content': 'contents of Post A',
-        'author': 'ALfred Emmanuel'
-    },
 
-    {
-        'title': 'Post B',
-        'content': 'contents of Post B'
-    },
-
-    {
-        'title': 'Post C',
-        'content': 'contents for Post C',
-        'author': 'Bouncey Inyang'
-    }
-
-]
 
 
 @app.route('/')
@@ -46,6 +28,17 @@ def post():
     else:
         all_posts = BlogPost.query.order_by(BlogPost.date_posted).all()
         return render_template('posts.html', posts=all_posts)
+
+
+@app.route('/posts/delete/<int:id>')
+def delete(id):
+    post = BlogPost.query.get_or_404(id)
+    db.session.delete(post)
+    db.session.commit()
+    return redirect('/posts')
+
+
+
 
 
 # @app.route('/user/<username>')

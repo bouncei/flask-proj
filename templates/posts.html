@@ -19,6 +19,8 @@
     <br>
     <input type='submit'value='POST'>
 </form>
+
+
 <hr>
 
 {% for post in posts %}
@@ -29,6 +31,8 @@
         <h3>By: N/A </h3>
     {% endif %}
     <p>{{ post.content }}</p>
+    <a href="/posts/delete/{{ post.id }}">DELETE</a>
+    <hr>
 {% endfor %}
 
 {% endblock %}
