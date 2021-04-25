@@ -38,6 +38,26 @@ def delete(id):
     return redirect('/posts')
 
 
+@app.route('/posts/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    if request.method == 'POST':
+        post = BlogPost.query.get_or_404(id)
+        post.title = request.form['title']
+        post.content = request.form['content']
+        post.author = request.form['author']
+        db.session.commit()
+
+        return redirect('/posts')
+        
+    else:
+        return render_template('edit.html')
+
+
+
+
+
+
+
 
 
 
