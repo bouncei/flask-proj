@@ -7,12 +7,14 @@ from models import BlogPost, db
 
 
 
-
+# Home route
 @app.route('/')
 def index():
-    return "Hello World with flask"
+    
+    return render_template('hello.html')
 
 
+# Creating a New BlogPost and adding it to the database
 @app.route('/posts', methods=['GET', 'POST'])
 def post():
     if request.method == 'POST':
@@ -30,6 +32,7 @@ def post():
         return render_template('posts.html', posts=all_posts)
 
 
+# Deleting a BlogPost
 @app.route('/posts/delete/<int:id>')
 def delete(id):
     post = BlogPost.query.get_or_404(id)
@@ -38,6 +41,7 @@ def delete(id):
     return redirect('/posts')
 
 
+# Editing a BlogPost
 @app.route('/posts/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
     post = BlogPost.query.get_or_404(id)
