@@ -3,3 +3,10 @@ a {
   text-decoration: none !important;
   /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
 }
+
+.btn-outline-secondary {
+  position: absolute !important;
+  left: 80% !important;
+  margin-top: 2% !important;
+
+}

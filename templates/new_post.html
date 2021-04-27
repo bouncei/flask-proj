@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+<title>New Pos</title>
+{% endblock %}
+
+{% block body %}
+
+<h1>Create New Blog Post:</h1>
+
+
+
+<form action='/posts/new_post' method='POST'>
+    <label for="title">Title:</label>
+    <input class="form-control" type="text" name="title" id="title" placeholder="Enter Title" aria-label="Enter Title">
+    
+    <br>
+
+    <label for="author">Author:</label>
+    <input class="form-control" type="text" name="author" id="author" placeholder="Enter Author" aria-label="Enter Author">
+
+    <br>
+
+    <label>Post:</label>
+    <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+    <br>
+    
+    <input type='submit' class="btn btn-outline-success" value='Post'>
+</form>
+
+
+
+{% endblock body %}

@@ -9,13 +9,17 @@
 
 <h1>Edit Post:</h1>
 <form action='/posts/edit/{{ post.id }}' method='POST'>
-    Title: <input type='text' name='title' id='title' value="{{post.title}}">
+    <label for="title">Title:</label>
+    <input class="form-control" type="text" name="title" id="title" value="{{ post.title }}" placeholder="Enter Title" aria-label="Enter Title">
+    
+    <label for="author">Author:</label>
+    <input class="form-control" type="text" name="author" id="author" value="{{ post.author }}" placeholder="Enter Author" aria-label="Enter Author">
+
+    <label>Post:</label>
+    <textarea class="form-control" id="content" name="content" rows="3">{{ post.content }}</textarea>
     <br>
-    Post: <input type='text' name='content' id='content' value="{{post.content}}">
-    <br>
-    Author: <input type='text' name='author' id='author' value="{{post.author}}">
-    <br>
-    <input type='submit'value='Save'>
+    
+    <input type='submit' class="btn btn-outline-success" value='Save'>
 </form>
 
 

@@ -6,33 +6,44 @@
 {% endblock %}
 
 {% block body %}
+
+
 <h1>User Posts</h1>
 
-<hr>
-<h1>Create New Blog Post</h1>
-<form action='/posts' method='POST'>
-    Title: <input type='text' name='title' id='title'>
+<!-- <form action='/posts' method='POST'>
+    <label for="title">Title:</label>
+    <input class="form-control" type="text" name="title" id="title" placeholder="Enter Title" aria-label="Enter Title">
+    
+    <label for="author">Author:</label>
+    <input class="form-control" type="text" name="author" id="author" placeholder="Enter Author" aria-label="Enter Author">
+
+    <label for="content">Post:</label>
+    <textarea class="form-control" id="content" name="content" rows="3"></textarea>
     <br>
-    Post: <input type='text' name='content' id='content'>
-    <br>
-    Author: <input type='text' name='author' id='author'>
-    <br>
-    <input type='submit'value='Post'>
-</form>
+    
+    <input type='submit' class="btn btn-outline-success" value='Post'>
+    
+</form> -->
+
+<a type="button" href="/posts/new_post" class="btn btn-outline-secondary btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> New Post</a>
+
 
 
 <hr>
 
 {% for post in posts %}
-    <h2>{{ post.title }}</h2>
+<br>
+    <h3>{{ post.title }}</h3>
     {% if post.author %}
-        <h3>By: {{ post.author }}</h3>
+        <small>Written By: {{ post.author }} on {{ post.date_posted }}</small>
     {% else %}
-        <h3>By: N/A </h3>
+        <small>Written By: N/A on {{ post.date_posted }} </small>
     {% endif %}
-    <p>{{ post.content }}</p>
-    <a href="/posts/delete/{{ post.id }}">Delete</a>
-    <a href="/posts/edit/{{ post.id }}">Edit</a>
+    <br>
+    <br>
+    <p style="white-space: pre-wrap;">{{ post.content }}</p>
+    <a class="btn btn-danger" href="/posts/delete/{{ post.id }}">Delete</a>
+    <a class="btn btn-primary" href="/posts/edit/{{ post.id }}">Edit</a>
     <hr>
 {% endfor %}
 
