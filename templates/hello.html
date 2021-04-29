@@ -1,18 +1,33 @@
-{% extends 'layout.html' %}
+{% extends 'layout.html' %} {% block head %}
 
-{% block head %}
+<title>Home Page</title>
+{% endblock %} {% block body %}
 
-<title>Welcome</title>
-{% endblock %}
+<!-- <h1>HomePage</h1> -->
 
-{% block body %}
-
-{% if name %}
-<h1>Hello {{ name }}!</h1>
-
-{% else %}
-<h1>Hello, World!</h1>
-
-{% endif %}
+<main role="main">
+  <div class="jumbotron">
+    <br>
+    <div class="col-sm-8 mx-auto">
+      <h1>Welcome!</h1>
+      <p>
+        Welcome to the Bouncey Blog! I am learning everything statistics and
+        computer science. Basics, framesworks, machine learning, other data
+        science stuff, any new tech or findings, and pretty much anything
+        computer science related.
+      </p>
+      <p>
+        Go visit my website
+        <a href="https://www.bouncei.herokuapp.com">bouncei.herokuapp.com</a> to
+        check out my portfolio and see more cool stuff beyond just blogs.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="/posts" role="button"
+          >Go To Posts &raquo;</a
+        >
+      </p>
+    </div>
+  </div>
+</main>
 
 {% endblock %}
