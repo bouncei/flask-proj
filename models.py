@@ -2,6 +2,7 @@ from config import *
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+# Datebase
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 db = SQLAlchemy(app)
 

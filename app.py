@@ -57,7 +57,7 @@ def edit(id):
     else:
         return render_template('edit.html', post=post)
 
-
+# New BlogPost
 @app.route('/posts/new_post', methods=['GET', 'POST'])
 def new_post():
     if request.method == 'POST':
@@ -106,14 +106,6 @@ def new_post():
 #     print(url_for('login'))
 #     print(url_for('login', next='/'))
 #     print(url_for('profile', username='John Doe'))
-
-
-@app.route('/yo/<name>')
-def how_far(name=None):
-    return render_template('hello.html', name=name)
-
-
-
 
 
 
