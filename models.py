@@ -23,8 +23,8 @@ class BlogPost(db.Model):
 
 
 # User Model
-class User(db.Model):
+# class User(db.Model):
 
 
-    def __repr__(self):
-        return 'User'
+#     def __repr__(self):
+#         return 'User'

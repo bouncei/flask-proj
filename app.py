@@ -2,6 +2,7 @@ from config import *
 from flask import url_for, request, render_template, redirect, flash
 from markupsafe import escape
 from models import BlogPost, db
+from flask_login import login_user, login_required, logout_user, current_user
 
 # Ensure responses aren't cached
 @app.after_request
