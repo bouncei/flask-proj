@@ -2,6 +2,9 @@ from config import *
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+# Ensure templates are auto-reloaded
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+
 # Datebase
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 db = SQLAlchemy(app)

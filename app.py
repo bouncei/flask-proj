@@ -3,9 +3,13 @@ from flask import url_for, request, render_template, redirect
 from markupsafe import escape
 from models import BlogPost, db
 
-
-
-
+# Ensure responses aren't cached
+@app.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Expires"] = 0
+    response.headers["Pragma"] = "no-cache"
+    return response
 
 # Home route
 @app.route('/')
@@ -74,7 +78,34 @@ def new_post():
         return render_template('new_post.html')
 
 
+# Login 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    """ Login User """
+    session.clear()
 
+
+
+    return render_template('login.html')
+
+
+@app.route("/logout")
+def logout():
+    """Log user out"""
+
+    # Forget any user_id
+    session.clear()
+
+    # Redirect user to login form
+    return redirect("/")
+
+
+@app.route('/register')
+def register():
+    """ Register User """
+
+
+    return render_template('register.html')
 
 
 
