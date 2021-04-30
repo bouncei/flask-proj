@@ -19,3 +19,12 @@ class BlogPost(db.Model):
 
     def __repr__(self):
         return 'Blog post' + str(self.id)
+
+
+
+# User Model
+class User(db.Model):
+
+
+    def __repr__(self):
+        return 'User'

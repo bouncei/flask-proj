@@ -1,5 +1,5 @@
 from config import *
-from flask import url_for, request, render_template, redirect
+from flask import url_for, request, render_template, redirect, flash
 from markupsafe import escape
 from models import BlogPost, db
 
@@ -82,7 +82,7 @@ def new_post():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """ Login User """
-    session.clear()
+    # session.clear()
 
 
 

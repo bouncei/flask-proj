@@ -5,13 +5,19 @@
 {% endblock %}
 
 {% block body %}
+    <h2 align='center'>Login</h2>
     <form action="/login" method="post">
+        <br>
         <div class="form-group">
             <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
         </div>
+        <br>
+
         <div class="form-group">
             <input class="form-control" name="password" placeholder="Password" type="password">
         </div>
+        <br>
+        
         <button class="btn btn-primary" type="submit">Log In</button>
     </form>
 {% endblock body %}
