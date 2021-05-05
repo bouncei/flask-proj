@@ -101,12 +101,35 @@ def logout():
     return redirect("/")
 
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     """ Register User """
 
+    if request.method == 'POST':
+        email = request.form.get('email')
+        firstname = request.form.get('firstname')
+        surname = request.form.get('surname')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
 
-    return render_template('register.html')
+        #check for input errors
+        if len(email) < 3:
+            flash('Email error', category='error')
+        if firstname or surname < 4:
+            flash('Name should be more than 3 charachers', category='error')
+
+        elif password1 != password2:
+            flash('Passwords don\'t match ', category='error')
+
+        elif password1 < 7:
+            flash('Password must be more than 6 charachers', category='error')
+
+
+        else:
+            flash('Account Created!', category='success')
+
+    else:
+        return render_template('register.html')
 
 
 

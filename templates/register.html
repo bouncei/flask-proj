@@ -2,7 +2,7 @@
 <title></title>
 {% endblock %} {% block body %}
 
-<form action="/register" , method="POST">
+<form action="/register" , method="post">
   <h2 align='center'>Sign up</h2>
 
   <div class="form-group">
@@ -25,7 +25,7 @@
       name="firstname"
       id="firstname"
       placeholder="Enter First Name"
-      required
+      
     />
   </div>
   <br>
@@ -36,8 +36,9 @@
       type="text"
       name="surname"
       id="surname"
+      autocomplete="off"
       placeholder="Enter Surname"
-      required
+      
     />
   </div>
   <br>
@@ -50,7 +51,7 @@
       name="password1"
       id="password1"
       placeholder="Enter Password"
-      required
+      
     />
   </div>
 
@@ -64,7 +65,7 @@
       name="password2"
       id="password2"
       placeholder="Confirm Password"
-      required
+      
     />
   </div>
 
