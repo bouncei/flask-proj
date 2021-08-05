@@ -2,7 +2,7 @@ from config import *
 from flask import url_for, request, render_template, redirect, flash
 from markupsafe import escape
 from models import BlogPost, db
-from flask_login import login_user, login_required, logout_user, current_user
+# from flask_login import login_user, login_required, logout_user, current_user
 
 # Ensure responses aren't cached
 @app.after_request
@@ -23,13 +23,13 @@ def index():
 @app.route('/posts', methods=['GET', 'POST'])
 def post():
     if request.method == 'POST':
-        post_title = request.form['title']
-        post_content = request.form['content']
-        post_author = request.form['author']
+        # post_title = request.form['title']
+        # post_content = request.form['content']
+        # post_author = request.form['author']
 
-        new_post = BlogPost(title=post_title, content=post_content, author=post_author)
-        db.session.add(new_post)
-        db.session.commit()
+        # new_post = BlogPost(title=post_title, content=post_content, author=post_author)
+        # db.session.add(new_post)
+        # db.session.commit()
         return redirect('/posts')
 
     else:
@@ -115,7 +115,8 @@ def register():
         #check for input errors
         if len(email) < 3:
             flash('Email error', category='error')
-        if firstname or surname < 4:
+        
+        elif firstname or surname < 4:
             flash('Name should be more than 3 charachers', category='error')
 
         elif password1 != password2:
