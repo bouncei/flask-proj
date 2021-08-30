@@ -1,26 +1,27 @@
-from config import *
-from flask_sqlalchemy import SQLAlchemy
+from . import db
 from flask_login import UserMixin
 from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
 
 
 # Ensure templates are auto-reloaded
-
-# Secret key
-app.config['SECRET_KEY'] = 'joshua inyang'
-
-# Datebase
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 # app.config["TEMPLATES_AUTO_RELOAD"] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 
+# app = Flask(__name__)
+
+# db = SQLAlchemy(app)
+
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/hp/Documents/Python/Projects/test/databases/posts.db'
 
 
 # app.config['SQLALCHEMY_BINDS'] = {
-#     'users' : 'sqlite///users.db',
+#     'users' : 'sqlite:////Users/hp/Documents/Python/Projects/test/databases/users.db'
 # }
 
-db = SQLAlchemy(app)
+
+
+
+
 
 # Blog Post Model
 class BlogPost(db.Model):
@@ -36,7 +37,7 @@ class BlogPost(db.Model):
 
 
 class User(db.Model, UserMixin):
-    # __bind_key__ = 'users'
+    __bind_key__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(100), nullable=False)
