@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 align="center">Welcome to flask-proj 👋</h1>
 <p>
   <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank">
@@ -34,3 +35,8 @@ Give a ⭐️ if this project helped you!
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+=======
+# flask-proj
+
+A blog made with Flask
+>>>>>>> origin/master
