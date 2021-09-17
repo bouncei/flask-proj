@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 <h1 align="center">Welcome to flask-proj 👋</h1>
 <p>
-  <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank"> Flask
+  <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank"> 
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
 </p>
